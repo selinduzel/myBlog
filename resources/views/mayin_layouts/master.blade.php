@@ -86,7 +86,22 @@
 								@endguest
 
 								@auth
-								<li class="btn-cta"><a href="{{route('login')}}"><span>Selin</span></a></li>
+
+								<li class="has-dropdown">
+									<a href=" #">{{auth()->user()->name}} <span class="caret"></span></a>
+									<ul class="dropdown">
+										<li>
+											<a 
+											onclick="event.preventDefault();
+											document.getElementById('nav-logout-form').submit()"
+											 href="#">Logout</a>
+
+											 <form id="nav-logout-form" action="{{route('logout')}}" method="POST">
+                                                 @csrf
+											 </form>
+										</li>
+									</ul>
+								</li>
 								@endauth
 							</ul>
 						</div>
