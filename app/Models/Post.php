@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,5 +27,10 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function İmage()
+    {
+        return $this->morphOne(Image::class , 'imageable');
     }
 }
