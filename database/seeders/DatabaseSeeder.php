@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Schema::disableForeignKeyConstraints();
-        
         \App\Models\User::truncate();
         \App\Models\Role::truncate();
         \App\Models\Category::truncate();
