@@ -25,8 +25,8 @@ class PostFactory extends Factory
           'slug' => $this->faker->unique()->slug(),
           'excerpt' => $this->faker->sentence(),
           'body' => $this->faker->paragraph(),
-          'user_id' => User::factory(),
-          'category_id' => Category::factory(),
+          'user_id' => \App\Models\User::factory(),
+          'category_id' => \App\Models\Category::all()->random()->id
         ];
     }
 }
