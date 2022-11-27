@@ -1,4 +1,4 @@
-@extends('mayin_layouts.master')
+@extends('main_layouts.master')
 
 @section('title', 'MyBlog | About' )
     
