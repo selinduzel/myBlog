@@ -1,8 +1,9 @@
 @extends('main_layouts.master')
-
 @section('title', 'Blog | İletişim ')
 
 @section('content')
+
+    <div class="gloabal-message info d-none"></div>
 
     <div class="colorlib-contact">
         <div class="container">
@@ -36,9 +37,7 @@
                 <div class="col-md-12">
                     <h2>Mesajınız</h2>
                 </div>
-
                 <x-blog.message :status="'success'" />
-
                 <div class="col-md-6">
                     <form onsubmit="return false;" autocomplete="off" method="POST">
                         @csrf
@@ -51,29 +50,22 @@
                                 <x-blog.form.input name="last_name" placeholder="Soyİsim"
                                     value="{{ old('last_name') }}" />
                                 <small class="error text-danger last_name"></small>
-
-
                             </div>
                         </div>
-
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <x-blog.form.input type='email' name="email" placeholder="Email"
                                     value="{{ old('email') }}" />
                                 <small class="error text-danger email"></small>
-
                             </div>
                         </div>
-
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <x-blog.form.input name="subject" required="false" placeholder="Konu"
                                     value="{{ old('subject') }}" />
                                 <small class="error text-danger subject"></small>
-
                             </div>
                         </div>
-
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <!-- <label for="message">Message</label> -->
@@ -93,11 +85,8 @@
             </div>
         </div>
     </div>
-
 @endsection
-
 @section('custom_js')
-
     <script>
         $(document).on('click', '.send-message-btn', (e) => {
             e.preventDefault();
@@ -115,9 +104,8 @@
             formData.append('email', email);
             formData.append('subject', subject);
             formData.append('message', message);
-            console.log(csrf_token)
             $.ajax({
-                url: '{{ route('contact.store') }}',
+                url: "{{ route('contact.store') }}",
                 data: formData,
                 type: 'POST',
                 dataType: 'JSON',
@@ -125,9 +113,22 @@
                 contentType: false,
                 success: function(data) {
                     console.log(data);
+                    if (data.success) {
+                        $(".global-message").addClass('alert , alert-info')
+                        $(".global-message").fadeIn()
+                        $(".global-message").text(data.message)
+                        clearData($($this).parents("form"), ['first_name', 'last_name', 'email',
+                            'subject', 'message'
+                        ]);
+                        setTimeout(() => {
+                            $(".global-message").fadeOut()
+                        }, 5000);
+                    } else 
+                    {
+                        
+                    }
                 }
             })
         })
     </script>
-
 @endsection

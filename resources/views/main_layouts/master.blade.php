@@ -262,13 +262,9 @@
     <script src="{{ asset('asset/js/jquery.countTo.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('asset/js/main.js') }}"></script>
-    @yield('custom_js')
 
-    <script>
-        setTimeout(() => {
-            $(".global-message").fadeOut;
-        }, 5000);
-    </script>
+    <script src="{{ asset('js/function.js') }}"></script>
+    @yield('custom_js')
 
 </body>
 
