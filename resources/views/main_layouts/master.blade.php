@@ -32,14 +32,11 @@
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{ asset('asset/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/owl.theme.default.min.css') }}">
-
     <!-- Flaticons  -->
     <link rel="stylesheet" href="{{ asset('asset/fonts/flaticon/font/flaticon.css') }}">
-
     <!-- Theme style  -->
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}">
-
     <!-- Modernizr JS -->
     <script src="{{ asset('asset/js/modernizr-2.6.2.min.js') }}"></script>
     <!-- FOR IE9 below -->
@@ -47,7 +44,6 @@
  <script src="{{ asset('asset/js/respond.min.js') }}"></script>
  <![endif]-->
     @yield('custom_css')
-
 </head>
 <body>
     <div id="page">
@@ -56,21 +52,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2">
-                            <div id="colorlib-logo"><a href="index.html">Blog</a></div>
+                            <div id="colorlib-logo"><a href="{{ route('home') }}">Blog</a></div>
                         </div>
-                        <div class="col-md-10 text-right menu-1">
+                        <div class="col-md-10 text-right menu-1 ">
                             <ul>
-                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('home') }}">Anasayfa</a></li>
                                 <li class="has-dropdown">
-                                    <a href="#">Categories</a>
+                                    <a href="#">Kategoriler</a>
                                     <ul class="dropdown">
                                         <li><a href="#">Programming</a></li>
                                         <li><a href="#">Games</a></li>
                                         <li><a href="#">Soft Skills</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('about') }}">About</a></li>
-                                <li><a href="{{ route('contact.create') }}">Contact</a></li>
+                                <li><a href="{{ route('about') }}">Hakkımızda</a></li>
+                                <li><a href="{{ route('contact.create') }}">İletişim</a></li>
                                 @guest
                                     <li class="btn-cta"><a href="{{ route('login') }}"><span>Giriş Yap</span></a>
                                     </li>
@@ -262,10 +258,8 @@
     <script src="{{ asset('asset/js/jquery.countTo.js') }}"></script>
     <!-- Main -->
     <script src="{{ asset('asset/js/main.js') }}"></script>
-
     <script src="{{ asset('js/function.js') }}"></script>
     @yield('custom_js')
-
 </body>
 
 </html>

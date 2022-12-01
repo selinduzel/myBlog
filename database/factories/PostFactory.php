@@ -1,12 +1,9 @@
 <?php
-
 namespace Database\Factories;
-
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
@@ -19,14 +16,13 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        return
-        [
-          'title' => $this->faker->sentence(),
-          'slug' => $this->faker->unique()->slug(),
-          'excerpt' => $this->faker->sentence(),
-          'body' => $this->faker->paragraph(),
-          'user_id' => \App\Models\User::factory(),
-          'category_id' => \App\Models\Category::all()->random()->id
+        return [
+            'title'=>$this->faker->sentence(),
+            'slug'=>$this->faker->unique()->slug(),
+            'excerpt'=>$this->faker->sentence(),
+            'body'=>$this->faker->paragraph(),
+            'user_id'=>User::factory(),
+            'category_id'=>Category::all()->random()->id,
         ];
     }
 }
