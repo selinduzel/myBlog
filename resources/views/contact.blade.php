@@ -126,6 +126,10 @@
                     } else 
                     {
                         
+                        for (const error in data.errors) 
+                        {
+                            $("small." + error).text, (data.errors[error]);
+                        }
                     }
                 }
             })
