@@ -1,10 +1,7 @@
 @extends('main_layouts.master')
 @section('title', 'Blog | İletişim ')
-
 @section('content')
-
     <div class="gloabal-message info d-none"></div>
-
     <div class="colorlib-contact">
         <div class="container">
             <div class="row row-pb-md">
@@ -123,11 +120,8 @@
                         setTimeout(() => {
                             $(".global-message").fadeOut()
                         }, 5000);
-                    } else 
-                    {
-                        
-                        for (const error in data.errors) 
-                        {
+                    } else {
+                        for (const error in data.errors) {
                             $("small." + error).text, (data.errors[error]);
                         }
                     }
