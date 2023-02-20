@@ -1,5 +1,5 @@
 @extends('main_layouts.master')
-@section('title', $category->name.'Kategori|Blog')
+@section('title', $tag->name.'Etiket|Blog')
 @section('content')
 
     <div class="colorlib-blog">
@@ -7,6 +7,7 @@
             <div class="row">
                 <!--======== Yazılar Başlangış =====-->
                 <div class="col-md-8 posts-col">
+
                     @forelse ($posts as $post)
                         <div class="block-21 d-flex animate-box">
                             <a href="{{ route('posts.show', $post) }}" class="blog-img"
@@ -36,7 +37,7 @@
                             </div>
                         </div>
                     @empty
-                        <p class="lead">Bu Kategoriye Ait Yazı Bulunmamaktadır.</p>
+                        <p class="lead">Bu Kategoriye Ait Etiket Bulunmamaktadır.</p>
                     @endforelse
                     {{ $posts->links() }}
                 </div>
